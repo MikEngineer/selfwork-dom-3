@@ -8,28 +8,44 @@
 // se il timer viene stoppato (non azzerato), il click sul tasto di avvio fara' riprendere il timer da quel punto
 
 
-
-
-// per ogni secondo dato da value prendi value e lo sostituisci con value-1 al pulsante start
-// deve creare un array da 0 a value e fare poi foreach
-
 let input_secondi = document.querySelector("#input_secondi");
 let startBtn = document.querySelector("#startBtn");
 let stopBtn = document.querySelector("#stopBtn");
 let resetBtn = document.querySelector("#resetBtn");
 let wrapper = document.querySelector("#wrapper");
+let remainingTime = document.querySelector("#remainingTime");
 
-let secondi = [];
+
+let interval;
+let counter;
+let remainingSeconds = 0;
 
 startBtn.addEventListener("click", ()=>{
-    for (let index = 0; index <= input_secondi.value; index++) {
-        secondi.push(index);
-    };
+    clearInterval(interval);
+    counter = input_secondi.value;
 
-    secondi.forEach((secondo)=>{
-        let timer = document.createElement("p");
-        timer.innerHTML = secondo;
-        wrapper.appendChild(timer);
-    });
-    
+    if (remainingSeconds !== 0) {
+        counter = remainingSeconds;
+    }
+
+    interval = setInterval(() => {
+        if(counter < 0){
+            clearInterval(interval);
+            remainingTime.innerHTML = `Tempo scaduto`;
+        }else{
+            remainingTime.innerHTML = counter;
+            counter --;
+        }
+    }, 1000);
+});
+
+stopBtn.addEventListener("click", ()=>{
+    clearInterval(interval);
+    remainingSeconds = counter;
+});
+
+resetBtn.addEventListener("click", ()=>{
+    input_secondi.value = "";
+    clearInterval(interval);
+    remainingTime.innerHTML = "";
 })
