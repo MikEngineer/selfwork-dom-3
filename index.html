@@ -1,0 +1,80 @@
+<!-- Crea una pagina html con le seguenti caratteristiche:
+crea un input dove potrai inserire un tot di secondi.
+un pulsante che, al click, fara' partire un countdown (dai secondi selezionati a zero).
+un pulsante che, al click, mettera' in pausa il countdown.
+un pulsante che, al click, pulira' l’input e azzerera' il countdown.
+
+EXTRA:
+se il timer viene stoppato (non azzerato), il click sul tasto di avvio fara' riprendere il timer da quel punto -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+
+<body>
+<!-- div input e buttons -->
+
+    <div class="container">
+        <h1 class="text-center mt-2 mb-5">Countdown</h1>
+        <div class="row">
+
+
+            <div class="col-12">
+                <div class="input-group mb-3">
+                    <input id="input_secondi" type="number" class="form-control" placeholder="Seconds...">
+                  </div>
+            </div>
+
+
+            <div class="col-4 d-flex justify-content-around">
+                <button id="startBtn" type="button" class="btn btn-outline-success">Start</button>
+            </div>
+
+
+            <div class="col-4 d-flex justify-content-around">
+                <button id="stopBtn" type="button" class="btn btn-outline-danger">Stop</button>
+            </div>
+
+
+            <div class="col-4 d-flex justify-content-around">
+                <button id="resetBtn" type="button" class="btn btn-outline-warning">Reset</button>
+            </div>
+
+
+        </div>
+    </div>
+
+
+<!-- div countdown -->
+
+    <div id="wrapper">
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="https://kit.fontawesome.com/9b739aea4a.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="./main.js"></script>
+</body>
+</html>
